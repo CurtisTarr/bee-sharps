@@ -1,18 +1,13 @@
-from flask import Flask
-import pandas as pd
-import matplotlib.pyplot as plt #graphing
-import numpy as np
+import sys
+from api import api
+from plotting import plotter
 
-app = Flask(__name__)
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        arg = sys.argv[1]
 
-dataFrame = pd.read_csv('dataset.csv')
+        if arg == '-p':
+            plotter.plot_csv('dataset.csv')
+            sys.exit()
 
-dataFrame['Age'].plot()
-plt.title('Row No')
-plt.ylabel('count')
-plt.xlabel('')
-
-
-plt.show()
-
-
+    api.run_api()
