@@ -19,6 +19,8 @@ jobs:
         python-version: 3.7
     - name: Setup pipenv
       uses: dschep/install-pipenv-action@v1
+      run: |
+        pipenv install
     - name: Test
       run: |
         cd server
