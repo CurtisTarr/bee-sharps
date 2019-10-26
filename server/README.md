@@ -7,11 +7,15 @@ Backend for Bee Sharps
 ### Requirements
 
 - Python 3
-- pip
+- pipenv
 
 ### Setup
 
-1. Setup venv [guide](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
-2. Navigate to this folder in terminal or venv
-3. Run `pip install -r requirements.txt`
-4. Run the api with `Python3 main.py`
+1. Setup pipenv [guide](https://pipenv-fork.readthedocs.io/en/latest/install.html#installing-pipenv)
+2. Navigate to this folder in terminal
+3. Run the api with `pipenv run python main.py`
+
+### Unit Tests
+
+1. Navigate to this folder in terminal
+2. Run unit tests with `pipenv run python -m unittest discover`
