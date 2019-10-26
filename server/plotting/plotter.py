@@ -5,10 +5,16 @@ import numpy as np
 
 def plot_csv(file_path):
     data_frame = pd.read_csv(file_path)
-    plot_graph(data_frame, 'Age', 'Age Breakdown of Applicants', 'Number of Applicants', 'Age', False)
-    plot_graph(data_frame, 'Race', 'Racial Breakdown of Applicants', 'Number of Applicants', 'Race', True)
-    plot_vs_interviewed(data_frame, 'Gender')
-    plot_vs_interviewed(data_frame, 'Race')
+
+    midway_point = int(len(data_frame) / 2)
+    data_set_one = data_frame[0:midway_point]
+    data_set_two = data_frame[midway_point:len(data_frame)]
+    data_sets = [data_set_one, data_set_two]
+
+    for data_set in data_sets:
+        plot_graph(data_set, 'Age', 'Age Breakdown of Applicants', 'Number of Applicants', 'Age', False)
+        plot_vs_interviewed(data_set, 'Gender')
+        plot_vs_interviewed(data_set, 'Race')
 
 
 def plot_graph(data_frame, column: str, title: str, y_label: str, x_label: str, should_use_hist: bool):
