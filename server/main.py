@@ -1,12 +1,18 @@
 from flask import Flask
+import pandas as pd
+import matplotlib.pyplot as plt #graphing
+import numpy as np
 
 app = Flask(__name__)
 
+dataFrame = pd.read_csv('dataset.csv')
 
-@app.route('/')
-def hello():
-    return "Test"
+dataFrame['Age'].plot()
+plt.title('Row No')
+plt.ylabel('count')
+plt.xlabel('')
 
 
-if __name__ == "__main__":
-    app.run(debug=True, host='localhost', port=5000)
+plt.show()
+
+
