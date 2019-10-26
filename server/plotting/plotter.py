@@ -5,9 +5,14 @@ import numpy as np
 
 def plot_csv(file_path):
     data_frame = pd.read_csv(file_path)
-    plot_graph(data_frame, 'Age', 'Age Breakdown of Applicants', 'Number of Applicants', 'Age', False)
-    plot_graph(data_frame, 'Race', 'Racial Breakdown of Applicants', 'Number of Applicants', 'Race', True)
-    plot_gender(data_frame)
+    midway_point = int(len(data_frame) / 2)
+    data_set_one = data_frame[0:midway_point]
+    data_set_two = data_frame[midway_point:len(data_frame)]
+    datasets = [data_set_one, data_set_two]
+    for dataset in datasets:
+        plot_graph(dataset, 'Age', 'Age Breakdown of Applicants', 'Number of Applicants', 'Age', False)
+        plot_graph(dataset, 'Race', 'Racial Breakdown of Applicants', 'Number of Applicants', 'Race', True)
+        plot_gender(dataset)
 
 
 def plot_graph(data_frame, column, title, ylabel, xlabel, shouldUseHist):
