@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class SimpleComponent extends Component {
+class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -9,10 +9,10 @@ class SimpleComponent extends Component {
     render() {
         return (
             <div>
-                <h2>Yo</h2>
+                <h3>Table</h3>
             </div>
         );
     }
 }
 
-export default SimpleComponent;
+export default Table;

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SimpleComponent from './SimpleComponent';
+import Chart from './Chart';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<SimpleComponent />, div);
+  ReactDOM.render(<Chart />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
