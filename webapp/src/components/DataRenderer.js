@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import Table from './dataComponents/Table'
+import React from 'react';
+import DynamicTable from './dataComponents/DynamicTable'
 import Chart from './dataComponents/Chart'
+import { Spinner } from 'reactstrap';
 
-class DataRenderer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
-    render() {
+function DataRenderer(props) {
+    if (typeof props.columns !== 'array' && typeof props.rows !== 'object') {
+        return (
+            <div>
+                <Spinner type="grow" color="primary" />
+            </div>
+        );
+    } else {
         return (
             <div>
                 <h2>DataRenderer</h2>
-                <Table />
+                <DynamicTable columns={props.columns} rows={props.rows} />
                 <Chart />
             </div>
         );
